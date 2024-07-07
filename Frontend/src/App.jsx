@@ -1,10 +1,10 @@
 import React from "react";
 import Home from "./home/Home";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Courses from "./courses/Courses";
 import Signup from "./components/Signup";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthProvider";
+import ServicePage from "./components/ServicePage";
 
 function App() {
   const [authUser, setAuthUser] = useAuth();
@@ -15,8 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/course"
-            element={authUser ? <Courses /> : <Navigate to="/signup" />}
+            path="/service-page"
+            element={authUser ? <ServicePage/> : <Navigate to="/signup" />}
           />
           <Route path="/signup" element={<Signup />} />
         </Routes>
